@@ -19,7 +19,7 @@
         "recognition": "OCR",
         "expected": "前往",
         "action": "Click",
-        "next":["师门任务,宝图任务,帮派任务,大理寺答题,五环任务,大理寺答题"]
+        "next":["师门任务,宝图任务,帮派任务,大理寺答题,五环任务"]
     },
     "师门任务":{
         "recognition": "TemplateMatch",
@@ -31,5 +31,12 @@
         "recognition": "OCR",
         "expected": "师门任务",
         "action": "Click"
-    }
+    },
+    "宝图任务":{
+        "recognition": "TemplateMatch",
+        "template": "task/baotu.png",
+        "action": "Click",
+        "next":["开始宝图任务"]
+    },
+    
 }
