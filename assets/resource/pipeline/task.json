@@ -1,0 +1,11 @@
+{
+    "task": {
+        "next":["开启任务菜单"]
+    },
+    "开启任务菜单":{
+        "recognition": "OCR",
+        "expected": "活动",
+        "roi" : [13,217,52,42],
+        "action": "Click"
+    }
+}
