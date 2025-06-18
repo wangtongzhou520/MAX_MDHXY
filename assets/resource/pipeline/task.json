@@ -6,6 +6,30 @@
         "recognition": "OCR",
         "expected": "活动",
         "roi" : [13,217,52,42],
+        "action": "Click",
+        "next":["金扫帚"]
+    },
+    "金扫帚":{
+        "recognition": "TemplateMatch",
+        "template": "oneperson/saozhu.png",
+        "action": "Click",
+        "next":["单人任务"]
+    },
+    "单人任务":{ 
+        "recognition": "OCR",
+        "expected": "前往",
+        "action": "Click",
+        "next":["师门任务,宝图任务,帮派任务,大理寺答题,五环任务,大理寺答题"]
+    },
+    "师门任务":{
+        "recognition": "TemplateMatch",
+        "template": "task/shimen.png",
+        "action": "Click",
+        "next":["开始师门任务"]
+    },
+    "开始师门任务":{
+        "recognition": "OCR",
+        "expected": "师门任务",
         "action": "Click"
     }
 }
