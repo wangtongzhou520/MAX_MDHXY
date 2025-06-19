@@ -1,42 +1,73 @@
 {
     "task": {
-        "next":["开启任务菜单"]
+        "next":["开启任务菜单2"]
     },
-    "开启任务菜单":{
+//     "开启任务菜单":{
+//         "recognition": "OCR",
+//         "expected": "活动",
+//         "roi" : [13,217,52,42],
+//         "action": "Click",
+//         "post_delay": 2000,
+//         "next":["金扫帚"]
+//     },
+//     "金扫帚":{
+//         "recognition": "TemplateMatch",
+//         "template": "../image/openperson/saozhu.png",
+//         "action": "Click",
+//         "roi" : [1070,615,90,84],
+//         "post_delay": 2000,
+//         "next":["师门任务"]
+//     },
+//    "师门任务":{
+//         "recognition": "TemplateMatch",
+//         "template": ["../image/openperson/shimen.png","../image/openperson/qianwang.png"],
+//         "action": "Click",
+//         "post_delay": 2000,
+//         "roi" : [972,135,92,53],
+//         "next":["前往师门任务"]
+//     },
+//     "前往师门任务":{
+//         "recognition": "TemplateMatch",
+//         "post_delay": 2000,
+//         "template": "../image/openperson/shimentask.png",
+//         "action": "Click"
+//     },
+//     "师门任务完成":{
+//         "recognition": "TemplateMatch",
+//         "template": "../image/openperson/shimenok.png",
+//         "rate_limit": 120000, //没两分钟识别下任务完成没有
+//         "action": "Click",
+//         "next":["开启任务菜单2"]
+//     },
+    "开启任务菜单2":{
         "recognition": "OCR",
         "expected": "活动",
         "roi" : [13,217,52,42],
         "action": "Click",
-        "next":["金扫帚"]
+        "post_delay": 2000,
+        "next":["金扫帚2"]
     },
-    "金扫帚":{
+    "金扫帚2":{
         "recognition": "TemplateMatch",
-        "template": "oneperson/saozhu.png",
+        "template": "../image/openperson/saozhu.png",
         "action": "Click",
-        "next":["单人任务"]
+        "roi" : [1070,615,90,84],
+        "post_delay": 2000,
+        "next":["大理寺庙答题"]
     },
-    "单人任务":{ 
-        "recognition": "OCR",
-        "expected": "前往",
-        "action": "Click",
-        "next":["师门任务,宝图任务,帮派任务,大理寺答题,五环任务"]
-    },
-    "师门任务":{
+    "大理寺庙答题":{
         "recognition": "TemplateMatch",
-        "template": "task/shimen.png",
+        "template": ["../image/openperson/dalishiquestion.png","../image/openperson/qianwang.png"],
         "action": "Click",
-        "next":["开始师门任务"]
+        "roi" : [972,135,92,53],
+        "post_wait_freezes": 1000,
+        "next":["前往大理寺庙"]
     },
-    "开始师门任务":{
-        "recognition": "OCR",
-        "expected": "师门任务",
+    "前往大理寺庙":{
+        "recognition": "TemplateMatch",
+        "post_delay": 2000,
+        "template": "../image/openperson/dalishitask.png",
         "action": "Click"
-    },
-    "宝图任务":{
-        "recognition": "TemplateMatch",
-        "template": "task/baotu.png",
-        "action": "Click",
-        "next":["开始宝图任务"]
     },
     
 }
