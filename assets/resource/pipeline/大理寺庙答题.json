@@ -1,0 +1,92 @@
+{
+    "大理寺庙答题":{
+        "next":["大理寺庙-打开地图"]
+    },
+    "大理寺庙-打开地图":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/打开地图.png",
+        "roi" : [0,0,80,85],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["地图-长安图标"]
+    },
+    "地图-长安图标":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/地图长安图标.png",
+        "action": "Click",
+        "roi" : [659,296,36,86],
+        "post_wait_freezes": 1000,
+        "next":["找到-大理寺官员"]
+    },
+    "找到-大理寺官员":{
+        "recognition": "OCR",
+        "expected": "大",
+        "roi" : [637,251,39,37],
+        "next":["前往-大理寺官员"]
+    },
+    "前往-大理寺官员":{
+        "recognition": "TemplateMatch",
+        "post_wait_freezes": 1000,
+        "roi" : [637,251,39,37],
+        "template": "../image/openperson/大理石官员地图坐标.png",
+        "action": "Click",
+        "next":["开始-大理石答题"]
+    },
+    "开始-大理石答题":{
+        "recognition": "TemplateMatch",
+        "post_wait_freezes": 1000,
+        "template": ["../image/openperson/大理寺答题任务.png","../image/openperson/大理石答题继续.png"],
+        "roi" : [847,435,347,62],
+        "action": "Click",
+        "next":["大理石答题-提交答案"]
+    },
+    "大理石答题-提交答案":{
+        "recognition": "TemplateMatch",
+        "template": ["../image/openperson/A.png","../image/openperson/B.png"],
+        "post_wait_freezes": 1000,
+        "action": "Click",
+        "next":["大理石答题继续","大理石答题完成"]
+    },
+    "大理石答题继续":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/大理石答题中.png",
+        "post_wait_freezes": 1000,
+        "roi" : [512,98,257,47],
+        "action": "Click",
+        "next":["大理石答题-提交答案"]
+    },
+    "大理石答题完成":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/大理石答题完成.png",
+        "post_wait_freezes": 1000,
+        "roi" : [103,507,490,49],
+        "action": "Click",
+        "next":["关闭大理石答题"]
+    },
+    "关闭大理石答题":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/关闭帮派任务.png",
+        "roi" : [1014,42,60,60],
+        "action": "Click",
+        "next":["关闭大理寺长安地图"],
+    },
+    "关闭大理寺长安地图":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/关闭通用图标.png",
+        "action": "Click",
+        "next":["识别大理寺任务进入长安地图"],
+    },
+    "识别大理寺任务进入长安地图":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/地图.png",
+        "next":["大理寺任务进入地图关闭"],
+        "roi" : [4,540,144,169],
+        "action": "Click",
+    },
+    "大理寺任务进入地图关闭":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/关闭通用图标.png",
+        "roi" : [1220,4,41,38],
+        "action": "Click",
+    },
+}

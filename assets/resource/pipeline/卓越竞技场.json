@@ -1,0 +1,137 @@
+{
+    "卓越竞技场":{
+        "next":["开启-竞技场地图"],
+    },
+    "开启-竞技场地图":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/打开地图.png",
+        "roi" : [0,0,80,85],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["地图-皇宫图标"]
+    },
+    "地图-皇宫图标":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/皇宫.png",
+        "roi" : [818,220,30,86],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["地图-金銮殿"]
+    },
+    "地图-金銮殿":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/金銮殿.png",
+        "action": "Click",
+        "roi" : [910,237,29,29],
+        "post_wait_freezes": 1000,
+        "post_delay": 3000,
+        "next":["竞技场程咬金"],
+        "interrupt": [
+            "地图-金銮殿"
+        ]
+    },
+    // "地图-金銮殿门口":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/openperson/金銮殿门口.png",
+    //     "action": "Click",
+    //     "roi" : [857,231,59,55],
+    //     "post_wait_freezes": 1000,
+    //     "next":["地图-竞技场皇宫地图关闭"]
+    // },
+    // "地图-竞技场皇宫地图关闭":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/openperson/皇宫地图关闭.png",
+    //     "action": "Click",
+    //     "roi" : [997,44,55,54],
+    //     "post_wait_freezes": 1000,
+    //     "next":["识别进入皇宫竞技场地图","进入金銮殿门口的圈"]
+    // },
+    // "识别进入皇宫竞技场地图":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/openperson/地图.png",
+    //     "roi" : [4,540,144,169],
+    //     "post_wait_freezes": 1000,
+    //     "next":["关闭进入皇宫竞技场地图"]
+    // },
+    // "关闭进入皇宫竞技场地图":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/openperson/通用关闭大地图图标.png",
+    //     "action": "Click",
+    //     "roi" : [1220,4,41,38],
+    //     "next":["进入金銮殿门口的圈"]
+    // },
+    // "进入金銮殿门口的圈":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/openperson/进入金銮殿门口的圈.png",
+    //     "action": "Click",
+    //     "roi" : [956,315,89,63],
+    //     "post_wait_freezes": 1000,
+    //     "next":["找到竞技场管理员"]
+    // },
+    "竞技场程咬金":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/程咬金.png",
+        "action": "Click",
+        "roi" : [658,508,85,45],
+        "post_wait_freezes": 1000,
+        "next":["开始挑战竞技场"]
+    },
+    "开始挑战竞技场":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/挑战竞技场.png",
+        "roi" : [842,433,356,64],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["第一挑战对象","关闭竞技场配置"],
+    },
+    "关闭竞技场配置":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/关闭通用图标.png",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["第一挑战对象","检查是否已经完成竞技场"],
+    },
+    "第一挑战对象":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/第一挑战对象.png",
+        "action": "Click",
+        "roi" : [887,121,162,50],
+        "post_wait_freezes": 1000,
+        "next":["战斗中","竞技场任务完成"],
+    },
+    "战斗中":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/战斗指令.png",
+        "roi" : [2,57,82,37],
+        "post_delay": 3000,
+        "next":["战斗退出-竞技场识别"],
+    },
+    "战斗退出-竞技场识别":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/竞技场页面.png",
+        "action": "Click",
+        "roi" : [154,547,319,116],
+        "post_wait_freezes": 1000,
+        "post_delay": 3000,
+        "next":["检查是否已经完成竞技场"],
+        "interrupt": ["战斗中"],
+    },
+    "检查是否已经完成竞技场":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/竞技场任务完成.png",
+        "action": "Click",
+        "roi" : [164,501,278,49],
+        "post_wait_freezes": 1000,
+        "post_delay": 3000,
+        "next":["关闭竞技场任务"],
+        "interrupt": ["第一挑战对象","竞技场任务完成"],
+    },
+    "关闭竞技场任务":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/关闭通用图标.png",
+        "post_wait_freezes": 1000,
+    },
+    "竞技场任务完成":{
+    },
+
+}

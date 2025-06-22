@@ -1,0 +1,63 @@
+{
+    "帮派任务": {
+        "next":["点击帮派"]
+    },
+    "点击帮派":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/帮派任务图标.png",
+        "action": "Click",
+        "roi" : [939,546,70,81],
+        "next":["回到帮派"]
+    },
+    "回到帮派":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/回到帮派.png",
+        "action": "Click",
+        "roi" : [878,588,200,66],
+        "next":["打开帮派地图"]
+    },
+    "打开帮派地图":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/打开帮派地图.png",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "roi" : [69,14,155,67],
+        "next":["识别帮派总管"]
+    },
+    "识别帮派总管":{
+        "recognition": "OCR",
+        "expected": "帮派总管",
+        "action": "Click",
+        "post_delay": 3000,
+        "next":["开启帮派任务"]
+    },
+    "开启帮派任务":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/帮派任务.png",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "roi" : [844,435,358,64],
+        "next":["帮派任务完成","帮派任务中"]
+    },
+    "帮派任务完成":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/帮派任务完成.png",
+        "action": "Click",
+        "next":["关闭帮派任务"]
+    },
+    "帮派任务中":{
+    },
+    "关闭帮派任务":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/关闭帮派任务.png",
+        "roi" : [1014,42,60,60],
+        "action": "Click",
+        "next":["关闭帮派地图"],
+    },
+    "关闭帮派地图":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/关闭帮派任务.png",
+        "roi" : [1014,42,60,60],
+        "action": "Click",
+    }
+}

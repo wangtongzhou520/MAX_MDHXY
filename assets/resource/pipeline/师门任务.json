@@ -1,0 +1,42 @@
+{
+    "师门任务": {
+        "next":["师门任务-开启任务菜单"]
+    },
+    "师门任务-开启任务菜单":{
+        "recognition": "OCR",
+        "expected": "活动",
+        "roi" : [13,217,52,42],
+        "action": "Click",
+        "post_delay": 2000,
+        "next":["师门任务-金扫帚"]
+    },
+    "师门任务-金扫帚":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/saozhu.png",
+        "action": "Click",
+        "roi" : [1070,615,90,84],
+        "post_delay": 2000,
+        "next":["开始-师门任务"]
+    },
+   "开始-师门任务":{
+        "recognition": "TemplateMatch",
+        "template": ["../image/openperson/shimen.png","../image/openperson/qianwang.png"],
+        "action": "Click",
+        "post_delay": 2000,
+        "roi" : [972,135,92,53],
+        "next":["前往-师门任务"]
+    },
+    "前往-师门任务":{
+        "recognition": "TemplateMatch",
+        "post_delay": 3000,
+        "template": "../image/openperson/shimentask.png",
+        "action": "Click",
+        "next":["执行-师门任务"]
+    },
+    "执行-师门任务":{
+        "recognition": "TemplateMatch",
+        "template": "../image/openperson/shimenok.png",
+        "rate_limit": 120000, //没两分钟识别下任务完成没有
+        "timeout": 600000
+    }
+}

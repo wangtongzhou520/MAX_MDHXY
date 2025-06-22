@@ -1,0 +1,152 @@
+{
+    "200环": {
+        "next":["200-等待执行任务"],
+    },
+    // "200环-打开世界地图":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/200/200环世界地图.png",
+    //     "roi" : [3,4,71,72],
+    //     "action": "Click",
+    //     "post_wait_freezes": 1000,
+    //     "next":["200环-找到蟠桃园"]
+    // },
+    // "200环-找到蟠桃园":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/200/200环蟠桃园.png",
+    //     "roi" : [249,75,33,90],
+    //     "action": "Click",
+    //     "post_wait_freezes": 1000,
+    //     "next":["200环-护园大将"]
+    // },
+    // "200环-找到护园大将":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/200/200护园大将.png",
+    //     "roi" : [729,530,95,54],
+    //     "action": "Click",
+    //     "post_wait_freezes": 1000,
+    //     "next":["200环-领取200环任务"]
+    // },
+    // "200环-领取200环任务":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/200/领取200环任务.png",
+    //     "roi" : [843,432,355,65],
+    //     "action": "Click",
+    //     "post_wait_freezes": 1000,
+    //     "next":["200环-寻路中"]
+    // },
+    "200-寻路中":{
+        "recognition": "OCR",
+        "expected": "自动寻路中",
+        "roi" : [545,158,258,37],
+        "post_wait_freezes": 1000,
+        "next":["200-等待执行任务"],
+    },
+    "200-战斗中":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/200战斗中.png",
+        "post_delay": 3000,
+        "roi" : [3,54,122,40],
+        "post_wait_freezes": 1000,
+        "next":["200-等待执行任务"]
+    },
+    "200-等待执行任务":{
+        "post_delay": 10000,
+        "next":["200-寻路中","200-战斗中","200-答题中","200-上交","200-斗志幻影","200-查找松鼠","200-夺魄妖王"],
+    },
+    "200-答题中":{
+        "recognition": "OCR",
+        "expected": "问答",
+        "post_wait_freezes": 1000,
+        "next":["200-筛选答案"],
+    },
+    "200-筛选答案":{
+        "recognition": "TemplateMatch",
+        "template": ["../image/200/200环A.png","../image/200/200环B.png"],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200-筛选失败","200-等待执行任务"],
+    },
+    "200-筛选失败":{
+        "recognition": "OCR",
+        "expected": "咋样,通不过我的考验吧",
+        "post_wait_freezes": 1000,
+        "action": "Click",
+        "next":["200-问题鬼再次点击答题","200-诗词鬼再次点击答题","200-歌王再次点击答题","200-等待执行任务"],
+    },
+    "200-问题鬼再次点击答题":{
+        "recognition": "OCR",
+        "expected": "通过问题鬼的考验",
+        "post_wait_freezes": 1000,
+        "action": "Click",
+        "next":["200-等待执行任务"],
+    },
+    "200-诗词鬼再次点击答题":{
+        "recognition": "OCR",
+        "expected": "通过诗词鬼的考验",
+        "post_wait_freezes": 1000,
+        "action": "Click",
+        "next":["200-等待执行任务"],
+    },
+   "200-歌王再次点击答题":{
+        "recognition": "OCR",
+        "expected": "通过歌王的考验",
+        "post_wait_freezes": 1000,
+        "action": "Click",
+        "next":["200-等待执行任务"],
+    },
+    "200-上交":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/上交.png",
+        "roi" : [694,532,190,59],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200-等待执行任务"]
+    },
+    "200-斗志幻影":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/200斗志幻影.png",
+        "roi" : [846,434,350,63],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200-等待执行任务"]
+    },
+    "200-查找松鼠":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/购买松鼠宝宝.png",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "roi" : [776,499,104,94],
+        "next":["200-购买宝宝"]
+    },
+    "200-判断是否自动随机购买":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/200自动随机购买.png",
+        "roi" : [447,603,188,53],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200-购买宝宝"]
+    },
+    // "购买独眼巨人":{
+    //     "recognition": "TemplateMatch",
+    //     "template": "../image/200/购买独眼巨人.png",
+    //     "roi" : [447,179,320,109],
+    //     "action": "Click",
+    //     "post_wait_freezes": 1000,
+    //     "next":["地图-皇宫图标"]
+    // },
+    "200-购买宝宝":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/购买宝宝.png",
+        "roi" : [770,533,110,62],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200-等待执行任务"]
+    },
+    "200-夺魄妖王":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/夺魄妖王.png",
+        "roi" : [849,436,335,62],
+        "post_wait_freezes": 1000,
+    },
+    
+}
