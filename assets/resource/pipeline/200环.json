@@ -1,43 +1,85 @@
 {
     "200环": {
+        "next":["200-检查有没有领取过","200-等待执行任务","200环-打开世界地图"],
+    },
+    "200-检查有没有领取过":{
+        "action": "MultiSwipe",
+        "swipes": [
+            {
+                "starting": 0,
+                "begin": [
+                    1140,
+                    180,
+                    1,
+                    1
+                ],
+                "end": [
+                    1140,
+                    430,
+                    1,
+                    1
+                ]
+            },
+            {
+                "starting": 1000,
+                "begin": [
+                    1140,
+                    180,
+                    1,
+                    1
+                ],
+                "end": [
+                    1140,
+                    430,
+                    1,
+                    1
+                ]
+            }
+        ],
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "expected": "200环任务链",
+        "next":["200-继续任务"],
+        "interrupt":["200-等待执行任务"]
+    },
+    "200-继续任务":{
+        "recognition": "OCR",
+        "expected": "200环任务链",
+        "action": "Click",
+        "post_wait_freezes": 1000,
         "next":["200-等待执行任务"],
     },
-    // "200环-打开世界地图":{
-    //     "recognition": "TemplateMatch",
-    //     "template": "../image/200/200环世界地图.png",
-    //     "roi" : [3,4,71,72],
-    //     "action": "Click",
-    //     "post_wait_freezes": 1000,
-    //     "next":["200环-找到蟠桃园"]
-    // },
-    // "200环-找到蟠桃园":{
-    //     "recognition": "TemplateMatch",
-    //     "template": "../image/200/200环蟠桃园.png",
-    //     "roi" : [249,75,33,90],
-    //     "action": "Click",
-    //     "post_wait_freezes": 1000,
-    //     "next":["200环-护园大将"]
-    // },
-    // "200环-找到护园大将":{
-    //     "recognition": "TemplateMatch",
-    //     "template": "../image/200/200护园大将.png",
-    //     "roi" : [729,530,95,54],
-    //     "action": "Click",
-    //     "post_wait_freezes": 1000,
-    //     "next":["200环-领取200环任务"]
-    // },
-    // "200环-领取200环任务":{
-    //     "recognition": "TemplateMatch",
-    //     "template": "../image/200/领取200环任务.png",
-    //     "roi" : [843,432,355,65],
-    //     "action": "Click",
-    //     "post_wait_freezes": 1000,
-    //     "next":["200环-寻路中"]
-    // },
-    "200-寻路中":{
+    "200环-打开世界地图":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/200环世界地图.png",
+        "roi" : [3,4,71,72],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200环-找到蟠桃园"]
+    },
+    "200环-找到蟠桃园":{
         "recognition": "OCR",
-        "expected": "自动寻路中",
-        "roi" : [545,158,258,37],
+        "expected": "蟠桃园",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200环-找到护园大将"]
+    },
+    "200环-找到护园大将":{
+        "recognition": "OCR",
+        "expected": "护园大将",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200环-领取200环任务"]
+    },
+    "200环-领取200环任务":{
+        "recognition": "TemplateMatch",
+        "template": "../image/200/领取200环任务.png",
+        "roi" : [843,432,355,65],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next":["200-等待执行任务"]
+    },
+    "200-寻路中":{
         "post_wait_freezes": 1000,
         "next":["200-等待执行任务"],
     },
@@ -50,8 +92,8 @@
         "next":["200-等待执行任务"]
     },
     "200-等待执行任务":{
-        "post_delay": 10000,
-        "next":["200-寻路中","200-战斗中","200-答题中","200-上交","200-斗志幻影","200-查找松鼠","200-夺魄妖王"],
+        "post_delay": 3000,
+        "next":["200-战斗中","200-答题中","200-上交","200-斗志幻影","200-查找松鼠","200-夺魄妖王","200-筛选失败","200-问题鬼再次点击答题","200-诗词鬼再次点击答题","200-歌王再次点击答题","200-检查有没有领取过","200-寻路中"],
     },
     "200-答题中":{
         "recognition": "OCR",
@@ -61,21 +103,23 @@
     },
     "200-筛选答案":{
         "recognition": "TemplateMatch",
-        "template": ["../image/200/200环A.png","../image/200/200环B.png"],
+        "template": ["../image/200/200环B.png","../image/200/200环A.png"],
         "action": "Click",
         "post_wait_freezes": 1000,
         "next":["200-筛选失败","200-等待执行任务"],
     },
     "200-筛选失败":{
-        "recognition": "OCR",
-        "expected": "咋样,通不过我的考验吧",
+        "recognition": "TemplateMatch",
+        "template": "../image/200/200问题失败.png",
+        "roi" : [97,499,318,71],
         "post_wait_freezes": 1000,
         "action": "Click",
         "next":["200-问题鬼再次点击答题","200-诗词鬼再次点击答题","200-歌王再次点击答题","200-等待执行任务"],
     },
     "200-问题鬼再次点击答题":{
-        "recognition": "OCR",
-        "expected": "通过问题鬼的考验",
+        "recognition": "TemplateMatch",
+        "template": "../image/200/问题鬼再次点击答题.png",
+        "roi" : [1044,189,169,38],
         "post_wait_freezes": 1000,
         "action": "Click",
         "next":["200-等待执行任务"],
@@ -146,7 +190,9 @@
         "recognition": "TemplateMatch",
         "template": "../image/200/夺魄妖王.png",
         "roi" : [849,436,335,62],
+        "action": "Click",
         "post_wait_freezes": 1000,
+        "next":["200-等待执行任务"]
     },
     
 }
